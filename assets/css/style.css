@@ -1,0 +1,247 @@
+/* ===== 카드결 (cardgyeol) — design tokens =====
+   컨셉: 카드 실물의 비율과 마그네틱 스트라이프를 시그니처 모티프로.
+   숫자(연회비/적립률/실적)는 모두 모노스페이스로 "명세서"처럼 정확하게. */
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400; font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600; font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Black.woff2') format('woff2');
+  font-weight: 900; font-display: swap;
+}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root{
+  --ink:#14171F;
+  --ink-soft:#232833;
+  --paper:#F7F5F0;
+  --paper-dim:#EDE9DE;
+  --gold:#C9A24B;
+  --gold-soft:#E8D6A6;
+  --teal:#1E4B47;
+  --crimson:#A13D3D;
+  --line: rgba(20,23,31,0.12);
+  --line-dark: rgba(247,245,240,0.14);
+  --radius-card: 20px;
+  --shadow: 0 12px 32px -18px rgba(20,23,31,0.35);
+  --maxw: 1120px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.mono{font-family:'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky; top:0; z-index:40;
+  background:rgba(247,245,240,0.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.site-header .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+.logo{font-weight:900; font-size:20px; letter-spacing:-0.02em; display:flex; align-items:center; gap:8px;}
+.logo .chip{
+  width:26px; height:18px; border-radius:4px;
+  background:linear-gradient(135deg, var(--gold) 0%, var(--teal) 100%);
+  position:relative;
+}
+.logo .chip::after{
+  content:''; position:absolute; left:4px; top:6px; width:14px; height:2px;
+  background:rgba(20,23,31,0.5); border-radius:1px;
+}
+nav.top-nav{display:flex; gap:22px; font-size:14px; font-weight:600;}
+nav.top-nav a{opacity:0.72; transition:opacity .15s;}
+nav.top-nav a:hover{opacity:1;}
+
+/* ---------- Hero ---------- */
+.hero{padding:64px 0 40px; border-bottom:1px solid var(--line);}
+.hero .eyebrow{
+  font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--teal); font-weight:600; margin-bottom:14px;
+  display:flex; align-items:center; gap:8px;
+}
+.hero .eyebrow::before{content:''; width:22px; height:1px; background:var(--teal);}
+.hero h1{
+  font-size:clamp(30px, 4.6vw, 48px); font-weight:900; letter-spacing:-0.03em;
+  margin:0 0 16px; max-width:16ch;
+}
+.hero h1 em{font-style:normal; color:var(--teal); position:relative;}
+.hero p.lead{font-size:16px; max-width:52ch; opacity:0.72; margin:0 0 28px;}
+
+/* ---------- Category filter ---------- */
+.filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;}
+.filter-chip{
+  font-size:13px; font-weight:600; padding:8px 14px; border-radius:999px;
+  border:1px solid var(--line); background:#fff; cursor:pointer;
+  transition:all .15s;
+}
+.filter-chip:hover{border-color:var(--teal);}
+.filter-chip.active{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+
+/* ---------- Card grid ---------- */
+.card-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr));
+  gap:20px; padding:36px 0 60px;
+}
+
+/* Signature element: 카드 실물 비율을 닮은 타일 */
+.ccard{
+  position:relative;
+  border-radius:var(--radius-card);
+  background:var(--ink);
+  color:var(--paper);
+  padding:22px 22px 18px;
+  box-shadow:var(--shadow);
+  display:flex; flex-direction:column; gap:14px;
+  aspect-ratio:1.586/1;
+  min-height:180px;
+  overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.ccard:hover{transform:translateY(-3px); box-shadow:0 20px 40px -18px rgba(20,23,31,0.5);}
+.ccard::before{ /* 은은한 카드 재질 광택 */
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 88% -10%, rgba(201,162,75,0.28), transparent 55%);
+  pointer-events:none;
+}
+.ccard .top-row{display:flex; justify-content:space-between; align-items:flex-start; position:relative;}
+.ccard .issuer{font-size:12px; opacity:0.62; font-weight:600;}
+.ccard .name{font-size:18px; font-weight:900; letter-spacing:-0.01em; margin-top:2px;}
+.ccard .rate-badge{
+  font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px;
+  background:rgba(201,162,75,0.16); color:var(--gold-soft);
+  padding:4px 9px; border-radius:8px; white-space:nowrap;
+}
+/* 마그네틱 스트라이프 모티프: 구분선 */
+.ccard .stripe{
+  height:1px; background:var(--line-dark); margin:0; position:relative;
+}
+.ccard .stripe::after{
+  content:''; position:absolute; left:0; top:-1px; width:38%; height:3px;
+  background:linear-gradient(90deg, var(--gold), transparent);
+}
+.ccard .spec-row{display:flex; gap:18px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; position:relative;}
+.ccard .spec-row .spec-label{opacity:0.5; display:block; font-size:10.5px; margin-bottom:2px; letter-spacing:.02em;}
+.ccard .spec-row .spec-val{font-weight:600;}
+.ccard .headline{font-size:13px; opacity:0.85; line-height:1.5; position:relative; flex:1;}
+.ccard .cats{display:flex; gap:6px; flex-wrap:wrap; position:relative;}
+.ccard .cat-tag{font-size:10.5px; padding:3px 8px; border-radius:999px; border:1px solid var(--line-dark); opacity:0.75;}
+
+.ccard-select{
+  position:absolute; top:16px; right:16px; z-index:5;
+  width:22px; height:22px; border-radius:6px; border:1.5px solid rgba(247,245,240,0.4);
+  background:rgba(20,23,31,0.4); cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.ccard-select.checked{background:var(--gold); border-color:var(--gold);}
+.ccard-select.checked::after{content:'✓'; font-size:13px; color:var(--ink); font-weight:900;}
+.ccard-link-overlay{position:absolute; inset:0; z-index:1;}
+
+/* ---------- Compare bar ---------- */
+.compare-bar{
+  position:fixed; left:50%; bottom:22px; transform:translate(-50%, 120%);
+  background:var(--ink); color:var(--paper); border-radius:999px;
+  padding:10px 10px 10px 20px; display:flex; align-items:center; gap:14px;
+  box-shadow:0 16px 40px -12px rgba(20,23,31,0.55); z-index:50;
+  transition:transform .25s ease; font-size:14px; font-weight:600;
+}
+.compare-bar.show{transform:translate(-50%, 0);}
+.compare-bar button{
+  background:var(--gold); color:var(--ink); border:none; padding:9px 18px;
+  border-radius:999px; font-weight:700; font-size:13.5px; cursor:pointer;
+}
+.compare-bar .clear{background:none; color:var(--paper); opacity:0.6; padding:4px; font-weight:600;}
+
+/* ---------- Detail page ---------- */
+.detail-hero{padding:48px 0 8px;}
+.detail-card{
+  border-radius:24px; background:var(--ink); color:var(--paper); padding:36px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden; margin-bottom:8px;
+}
+.detail-card::before{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 90% -10%, rgba(201,162,75,0.3), transparent 55%);
+}
+.detail-card .issuer{font-size:13px; opacity:0.65; font-weight:600; position:relative;}
+.detail-card h1{font-size:clamp(26px,4vw,38px); font-weight:900; margin:4px 0 18px; position:relative;}
+.detail-card .stripe{height:1px; background:var(--line-dark); margin:14px 0; position:relative;}
+.detail-card .fee-grid{display:flex; flex-wrap:wrap; gap:28px; position:relative;}
+.detail-card .fee-item .label{font-size:11.5px; opacity:0.55; margin-bottom:4px; font-family:'IBM Plex Mono',monospace;}
+.detail-card .fee-item .val{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:18px;}
+
+.section{padding:34px 0; border-bottom:1px solid var(--line);}
+.section h2{font-size:20px; font-weight:900; margin:0 0 14px;}
+.section ul{margin:0; padding-left:20px;}
+.section ul li{margin-bottom:8px;}
+.callout{
+  border:1px solid var(--line); border-left:3px solid var(--crimson);
+  background:#fff; border-radius:12px; padding:16px 18px; font-size:14px; opacity:0.85;
+}
+.callout.good{border-left-color:var(--teal);}
+.verify-line{font-family:'IBM Plex Mono',monospace; font-size:12px; opacity:0.5; margin-top:10px;}
+.source-links{font-size:13px; opacity:0.6;}
+.source-links a{text-decoration:underline;}
+
+/* ---------- Compare table ---------- */
+.compare-table-wrap{overflow-x:auto; padding:20px 0 60px;}
+table.compare-table{border-collapse:collapse; width:100%; min-width:640px;}
+table.compare-table th, table.compare-table td{
+  border:1px solid var(--line); padding:14px 16px; text-align:left; vertical-align:top; font-size:13.5px;
+}
+table.compare-table th{background:var(--ink); color:var(--paper); font-weight:700; position:sticky; top:64px;}
+table.compare-table td.label-cell{font-weight:700; background:var(--paper-dim); font-family:'IBM Plex Mono',monospace; font-size:12px; white-space:nowrap;}
+table.compare-table td .mono-val{font-family:'IBM Plex Mono',monospace; font-weight:600;}
+
+/* ---------- Ad slot ---------- */
+.ad-slot{margin:28px 0; text-align:center; opacity:0.9;}
+.ad-slot .ad-label{font-size:10px; letter-spacing:.08em; text-transform:uppercase; opacity:0.4; margin-bottom:6px; font-family:'IBM Plex Mono',monospace;}
+
+/* ---------- Footer ---------- */
+footer.site-footer{border-top:1px solid var(--line); padding:40px 0; margin-top:20px;}
+footer.site-footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; font-size:13px; opacity:0.65;}
+footer.site-footer nav{display:flex; gap:16px; flex-wrap:wrap;}
+footer .disclaimer{max-width:640px; font-size:12px; opacity:0.55; margin-top:16px; line-height:1.6;}
+
+/* ---------- Legal pages ---------- */
+.legal-page{padding:56px 0 80px;}
+.legal-page h1{font-size:30px; font-weight:900; margin-bottom:8px;}
+.legal-page h2{font-size:18px; font-weight:800; margin:32px 0 10px;}
+.legal-page p, .legal-page li{font-size:14.5px; opacity:0.82;}
+
+/* ---------- Cookie consent ---------- */
+#cookie-banner{
+  position:fixed; left:16px; right:16px; bottom:16px; max-width:560px; margin:0 auto;
+  background:var(--ink); color:var(--paper); border-radius:16px; padding:18px 20px;
+  box-shadow:0 16px 40px -14px rgba(20,23,31,0.6); z-index:100; font-size:13.5px;
+  display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+}
+#cookie-banner.hidden{display:none;}
+#cookie-banner button{
+  background:var(--gold); color:var(--ink); border:none; padding:9px 16px; border-radius:999px;
+  font-weight:700; cursor:pointer; font-size:13px;
+}
+#cookie-banner p{margin:0; opacity:0.85; flex:1; min-width:220px;}
+#cookie-banner a{text-decoration:underline;}
+
+@media (max-width:640px){
+  nav.top-nav{display:none;}
+  .detail-card{padding:24px;}
+  table.compare-table th{position:static;}
+}
