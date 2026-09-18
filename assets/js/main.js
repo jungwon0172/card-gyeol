@@ -36,6 +36,18 @@
   });
 })();
 
+// ---- 카드 타일 클릭 -> 상세페이지 이동 (비교 선택 버튼 클릭은 제외) ----
+(function(){
+  var tiles = document.querySelectorAll('.ccard-tile[data-href]');
+  tiles.forEach(function(tile){
+    tile.addEventListener('click', function(e){
+      if(e.target.closest('.ccard-select')) return; // 비교 선택 버튼 클릭이면 이동하지 않음
+      var href = tile.getAttribute('data-href');
+      if(href) window.location.href = href;
+    });
+  });
+})();
+
 // ---- 비교하기: 선택 상태 관리 ----
 (function(){
   var selectBtns = document.querySelectorAll('.ccard-select');
@@ -51,12 +63,12 @@
     if(selected.length > 0){ bar.classList.add('show'); } else { bar.classList.remove('show'); }
     countEl.textContent = selected.length + '개 선택';
     goBtn.disabled = selected.length < 2;
-    goBtn.style.opacity = selected.length < 2 ? '0.5' : '1';
   }
 
   selectBtns.forEach(function(btn){
     btn.addEventListener('click', function(e){
-      e.preventDefault(); e.stopPropagation();
+      e.preventDefault();
+      e.stopPropagation();
       var id = btn.getAttribute('data-id');
       var idx = selected.indexOf(id);
       if(idx === -1){
@@ -72,7 +84,9 @@
   });
 
   if(clearBtn){
-    clearBtn.addEventListener('click', function(){
+    clearBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
       selected = [];
       selectBtns.forEach(function(b){ b.classList.remove('checked'); });
       render();
@@ -80,10 +94,12 @@
   }
 
   if(goBtn){
-    goBtn.addEventListener('click', function(){
+    goBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
       if(selected.length < 2) return;
-      // index.html과 같은 폴더에 compare.html이 있으므로 상대경로로 이동 (file:// 로컬 열람 시에도 동작)
-      window.location.href = 'compare.html?ids=' + selected.join(',');
+      var comparePath = document.body.getAttribute('data-compare-path') || 'compare.html';
+      window.location.href = comparePath + '?ids=' + selected.join(',');
     });
   }
 })();

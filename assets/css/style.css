@@ -84,7 +84,8 @@ nav.top-nav a:hover{opacity:1;}
   margin:0 0 16px; max-width:16ch;
 }
 .hero h1 em{font-style:normal; color:var(--teal); position:relative;}
-.hero p.lead{font-size:16px; max-width:52ch; opacity:0.72; margin:0 0 28px;}
+.hero p.lead{font-size:16px; max-width:52ch; opacity:0.72; margin:0 0 12px;}
+.hero p.hint{font-size:13px; opacity:0.55; margin:0 0 28px;}
 
 /* ---------- Category filter ---------- */
 .filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;}
@@ -103,6 +104,7 @@ nav.top-nav a:hover{opacity:1;}
 }
 
 /* Signature element: 카드 실물 비율을 닮은 타일 */
+.ccard-tile{ cursor:pointer; }
 .ccard{
   position:relative;
   border-radius:var(--radius-card);
@@ -111,20 +113,20 @@ nav.top-nav a:hover{opacity:1;}
   padding:22px 22px 18px;
   box-shadow:var(--shadow);
   display:flex; flex-direction:column; gap:14px;
-  aspect-ratio:1.586/1;
-  min-height:180px;
+  min-height:220px;
   overflow:hidden;
   transition:transform .18s ease, box-shadow .18s ease;
 }
-.ccard:hover{transform:translateY(-3px); box-shadow:0 20px 40px -18px rgba(20,23,31,0.5);}
+.ccard-tile:hover .ccard{transform:translateY(-3px); box-shadow:0 20px 40px -18px rgba(20,23,31,0.5);}
 .ccard::before{ /* 은은한 카드 재질 광택 */
   content:''; position:absolute; inset:0;
   background:radial-gradient(circle at 88% -10%, rgba(201,162,75,0.28), transparent 55%);
   pointer-events:none;
 }
-.ccard .top-row{display:flex; justify-content:space-between; align-items:flex-start; position:relative;}
+.ccard .top-row{display:flex; justify-content:space-between; align-items:flex-start; position:relative; gap:10px;}
 .ccard .issuer{font-size:12px; opacity:0.62; font-weight:600;}
 .ccard .name{font-size:18px; font-weight:900; letter-spacing:-0.01em; margin-top:2px;}
+.ccard .top-actions{display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex:0 0 auto;}
 .ccard .rate-badge{
   font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px;
   background:rgba(201,162,75,0.16); color:var(--gold-soft);
@@ -145,14 +147,30 @@ nav.top-nav a:hover{opacity:1;}
 .ccard .cats{display:flex; gap:6px; flex-wrap:wrap; position:relative;}
 .ccard .cat-tag{font-size:10.5px; padding:3px 8px; border-radius:999px; border:1px solid var(--line-dark); opacity:0.75;}
 
+/* 비교 선택 토글: 이제 top-row 안 normal flow에 위치 (겹침 없음), 라벨 포함 */
 .ccard-select{
-  position:absolute; top:16px; right:16px; z-index:5;
-  width:22px; height:22px; border-radius:6px; border:1.5px solid rgba(247,245,240,0.4);
-  background:rgba(20,23,31,0.4); cursor:pointer; display:flex; align-items:center; justify-content:center;
+  position:relative; z-index:2;
+  display:inline-flex; align-items:center; gap:5px;
+  background:rgba(247,245,240,0.10);
+  border:1px solid rgba(247,245,240,0.4);
+  border-radius:999px;
+  padding:5px 10px 5px 7px;
+  cursor:pointer;
+  font-family:'Pretendard', sans-serif;
+  font-size:11px; font-weight:700; color:var(--paper);
+  white-space:nowrap;
+  transition:background .15s, border-color .15s;
 }
-.ccard-select.checked{background:var(--gold); border-color:var(--gold);}
-.ccard-select.checked::after{content:'✓'; font-size:13px; color:var(--ink); font-weight:900;}
-.ccard-link-overlay{position:absolute; inset:0; z-index:1;}
+.ccard-select:hover{background:rgba(247,245,240,0.18);}
+.ccard-select .box{
+  width:14px; height:14px; border-radius:4px; flex:0 0 auto;
+  border:1.5px solid rgba(247,245,240,0.65);
+  display:flex; align-items:center; justify-content:center;
+}
+.ccard-select .box::after{content:''; font-size:10px; line-height:1;}
+.ccard-select.checked{background:var(--gold); border-color:var(--gold); color:var(--ink);}
+.ccard-select.checked .box{background:var(--ink); border-color:var(--ink);}
+.ccard-select.checked .box::after{content:'✓'; color:var(--gold);}
 
 /* ---------- Compare bar ---------- */
 .compare-bar{
@@ -167,7 +185,8 @@ nav.top-nav a:hover{opacity:1;}
   background:var(--gold); color:var(--ink); border:none; padding:9px 18px;
   border-radius:999px; font-weight:700; font-size:13.5px; cursor:pointer;
 }
-.compare-bar .clear{background:none; color:var(--paper); opacity:0.6; padding:4px; font-weight:600;}
+.compare-bar button:disabled{opacity:0.5; cursor:not-allowed;}
+.compare-bar .clear{background:none; color:var(--paper); opacity:0.6; padding:4px; font-weight:600; cursor:pointer; border:none;}
 
 /* ---------- Detail page ---------- */
 .detail-hero{padding:48px 0 8px;}
@@ -185,6 +204,15 @@ nav.top-nav a:hover{opacity:1;}
 .detail-card .fee-grid{display:flex; flex-wrap:wrap; gap:28px; position:relative;}
 .detail-card .fee-item .label{font-size:11.5px; opacity:0.55; margin-bottom:4px; font-family:'IBM Plex Mono',monospace;}
 .detail-card .fee-item .val{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:18px;}
+.detail-card .apply-row{position:relative; margin-top:22px;}
+.apply-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--gold); color:var(--ink); font-weight:800; font-size:14px;
+  padding:12px 20px; border-radius:999px; transition:transform .15s ease;
+}
+.apply-btn:hover{transform:translateY(-1px);}
+.apply-btn .arrow{font-size:15px;}
+.apply-note{font-size:11.5px; opacity:0.55; margin-top:8px; position:relative;}
 
 .section{padding:34px 0; border-bottom:1px solid var(--line);}
 .section h2{font-size:20px; font-weight:900; margin:0 0 14px;}
@@ -205,9 +233,10 @@ table.compare-table{border-collapse:collapse; width:100%; min-width:640px;}
 table.compare-table th, table.compare-table td{
   border:1px solid var(--line); padding:14px 16px; text-align:left; vertical-align:top; font-size:13.5px;
 }
-table.compare-table th{background:var(--ink); color:var(--paper); font-weight:700; position:sticky; top:64px;}
+table.compare-table th{background:var(--ink); color:var(--paper); font-weight:700;}
 table.compare-table td.label-cell{font-weight:700; background:var(--paper-dim); font-family:'IBM Plex Mono',monospace; font-size:12px; white-space:nowrap;}
 table.compare-table td .mono-val{font-family:'IBM Plex Mono',monospace; font-weight:600;}
+table.compare-table td a.apply-link-cell{display:inline-block; margin-top:4px; font-size:12.5px; font-weight:700; color:var(--teal); text-decoration:underline;}
 
 /* ---------- Ad slot ---------- */
 .ad-slot{margin:28px 0; text-align:center; opacity:0.9;}

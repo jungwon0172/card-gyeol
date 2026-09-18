@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>카드결 — 군더더기 없이, 카드 혜택의 결을 봅니다</title>
-<meta name="description" content="연회비, 전월 실적, 적립·할인율을 카드사 공식 정보 기준으로 정리한 신용카드 혜택 비교 사이트.">
+<meta name="description" content="연회비, 전월 실적, 적립·할인율을 카드사 공식 정보 기준으로 정리한 신용카드 혜택 비교 사이트. 카드 23종 수록.">
 <link rel="canonical" href="https://example-cardcompare.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="카드결 — 군더더기 없이, 카드 혜택의 결을 봅니다">
-<meta property="og:description" content="연회비, 전월 실적, 적립·할인율을 카드사 공식 정보 기준으로 정리한 신용카드 혜택 비교 사이트.">
+<meta property="og:description" content="연회비, 전월 실적, 적립·할인율을 카드사 공식 정보 기준으로 정리한 신용카드 혜택 비교 사이트. 카드 23종 수록.">
 <meta property="og:url" content="https://example-cardcompare.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="naver-site-verification" content="c379a137ab1a462f47f2fbe59cee9b81acdcd9c8" />
 <link rel="stylesheet" href="assets/css/style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2557338953436433" crossorigin="anonymous"></script>
 </head>
-<body>
+<body data-compare-path="compare.html">
 <header class="site-header">
   <div class="wrap">
     <a href="index.html" class="logo"><span class="chip"></span>카드결</a>
@@ -32,22 +32,26 @@
   <div class="wrap">
     <div class="eyebrow">Card Spec Sheet</div>
     <h1>연회비와 적립률, <em>숫자로만</em> 비교합니다</h1>
-    <p class="lead">광고 문구 대신 연회비·전월 실적·혜택 구조를 명세서처럼 정리했습니다. 체크박스로 카드를 골라 나란히 비교해보세요.</p>
-    <div class="filters"><button class="filter-chip active" data-cat="all">전체</button><button class="filter-chip" data-cat="no-min">무실적</button><button class="filter-chip" data-cat="lifestyle">생활 밀착형</button><button class="filter-chip" data-cat="fuel">주유 특화</button><button class="filter-chip" data-cat="transit">대중교통</button><button class="filter-chip" data-cat="overseas">해외겸용</button></div>
+    <p class="lead">광고 문구 대신 연회비·전월 실적·혜택 구조를 명세서처럼 정리했습니다.</p>
+    <p class="hint">카드 오른쪽 위 "비교" 버튼으로 최대 4개까지 골라 나란히 비교할 수 있어요. 카드 이름을 클릭하면 상세 정보로 이동합니다.</p>
+    <div class="filters"><button class="filter-chip active" data-cat="all">전체</button><button class="filter-chip" data-cat="no-min">무실적</button><button class="filter-chip" data-cat="lifestyle">생활 밀착형</button><button class="filter-chip" data-cat="fuel">주유 특화</button><button class="filter-chip" data-cat="transit">대중교통</button><button class="filter-chip" data-cat="overseas">해외겸용</button><button class="filter-chip" data-cat="twenties">20대 추천</button></div>
   </div>
 </section>
 <section class="wrap">
   <div class="card-grid">
-    <div class="ccard-tile" data-cats="no-min" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/shinhan-deepdream/index.html" aria-label="신한카드 Deep Dream 상세보기"></a>
+    <div class="ccard-tile" data-cats="no-min" data-href="card/shinhan-deepdream/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="shinhan-deepdream" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">신한카드</div>
         <div class="name">Deep Dream</div>
       </div>
-      <div class="rate-badge mono">0.7%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">0.7%</div>
+        <button class="ccard-select" data-id="shinhan-deepdream" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -57,16 +61,19 @@
     <div class="headline">실적 조건 없이 0.7~0.8% 적립</div>
     <div class="cats"><span class="cat-tag">무실적</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="fuel" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/shinhan-deepoil/index.html" aria-label="신한카드 Deep Oil 상세보기"></a>
+</div><div class="ccard-tile" data-cats="fuel" data-href="card/shinhan-deepoil/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="shinhan-deepoil" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">신한카드</div>
         <div class="name">Deep Oil</div>
       </div>
-      <div class="rate-badge mono">10%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">10%</div>
+        <button class="ccard-select" data-id="shinhan-deepoil" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -76,16 +83,19 @@
     <div class="headline">주유 금액의 10% 정률 할인</div>
     <div class="cats"><span class="cat-tag">주유 특화</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/samsung-taptapO/index.html" aria-label="삼성카드 taptap O 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle" data-href="card/samsung-taptapO/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="samsung-taptapO" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">삼성카드</div>
         <div class="name">taptap O</div>
       </div>
-      <div class="rate-badge mono">월 최대 3만원</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">월 최대 3만원</div>
+        <button class="ccard-select" data-id="samsung-taptapO" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -95,16 +105,19 @@
     <div class="headline">매달 원하는 패키지 선택형 할인</div>
     <div class="cats"><span class="cat-tag">생활 밀착형</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="transit,lifestyle" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/shinhan-bbig/index.html" aria-label="신한카드 B.Big (삑) 상세보기"></a>
+</div><div class="ccard-tile" data-cats="transit,lifestyle,twenties" data-href="card/shinhan-bbig/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="shinhan-bbig" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">신한카드</div>
         <div class="name">B.Big (삑)</div>
       </div>
-      <div class="rate-badge mono">교통 포함 다영역 할인</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">교통 포함 다영역 할인</div>
+        <button class="ccard-select" data-id="shinhan-bbig" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -112,18 +125,21 @@
       <div><span class="spec-label">전월 실적</span><span class="spec-val">300,000원~</span></div>
     </div>
     <div class="headline">출퇴근길 대중교통부터 백화점까지</div>
-    <div class="cats"><span class="cat-tag">대중교통</span><span class="cat-tag">생활 밀착형</span></div>
+    <div class="cats"><span class="cat-tag">대중교통</span><span class="cat-tag">생활 밀착형</span><span class="cat-tag">20대 추천</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="no-min,overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/hyundai-zero3-discount/index.html" aria-label="현대카드 ZERO Edition3 (할인형) 상세보기"></a>
+</div><div class="ccard-tile" data-cats="no-min,overseas,twenties" data-href="card/hyundai-zero3-discount/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="hyundai-zero3-discount" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">현대카드</div>
         <div class="name">ZERO Edition3 (할인형)</div>
       </div>
-      <div class="rate-badge mono">0.8%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">0.8%</div>
+        <button class="ccard-select" data-id="hyundai-zero3-discount" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -131,18 +147,21 @@
       <div><span class="spec-label">전월 실적</span><span class="spec-val">무실적</span></div>
     </div>
     <div class="headline">실적·한도 없이 국내외 0.8% 청구 할인</div>
-    <div class="cats"><span class="cat-tag">무실적</span><span class="cat-tag">해외겸용</span></div>
+    <div class="cats"><span class="cat-tag">무실적</span><span class="cat-tag">해외겸용</span><span class="cat-tag">20대 추천</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/kb-cheongchun-toktok/index.html" aria-label="KB국민카드 청춘대로 톡톡 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle,twenties" data-href="card/kb-cheongchun-toktok/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="kb-cheongchun-toktok" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">KB국민카드</div>
         <div class="name">청춘대로 톡톡</div>
       </div>
-      <div class="rate-badge mono">최대 5.6%대 피킹률</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">최대 5.6%대 피킹률</div>
+        <button class="ccard-select" data-id="kb-cheongchun-toktok" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -150,18 +169,21 @@
       <div><span class="spec-label">전월 실적</span><span class="spec-val">300,000원~</span></div>
     </div>
     <div class="headline">스타벅스 50% + 간편결제 10% + 대중교통·통신 10%</div>
-    <div class="cats"><span class="cat-tag">생활 밀착형</span></div>
+    <div class="cats"><span class="cat-tag">생활 밀착형</span><span class="cat-tag">20대 추천</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="no-min,overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/lotte-loca-likit12/index.html" aria-label="롯데카드 LOCA LIKIT 1.2 상세보기"></a>
+</div><div class="ccard-tile" data-cats="no-min,overseas,twenties" data-href="card/lotte-loca-likit12/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="lotte-loca-likit12" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">롯데카드</div>
         <div class="name">LOCA LIKIT 1.2</div>
       </div>
-      <div class="rate-badge mono">1.2%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">1.2%</div>
+        <button class="ccard-select" data-id="lotte-loca-likit12" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -169,18 +191,21 @@
       <div><span class="spec-label">전월 실적</span><span class="spec-val">무실적</span></div>
     </div>
     <div class="headline">실적·한도 없이 국내외 1.2%, 온라인 1.5% 청구할인</div>
-    <div class="cats"><span class="cat-tag">무실적</span><span class="cat-tag">해외겸용</span></div>
+    <div class="cats"><span class="cat-tag">무실적</span><span class="cat-tag">해외겸용</span><span class="cat-tag">20대 추천</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="no-min,overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/woori-every-discount/index.html" aria-label="우리카드 카드의정석 EVERY DISCOUNT 상세보기"></a>
+</div><div class="ccard-tile" data-cats="no-min,overseas" data-href="card/woori-every-discount/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="woori-every-discount" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">우리카드</div>
         <div class="name">카드의정석 EVERY DISCOUNT</div>
       </div>
-      <div class="rate-badge mono">0.8%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">0.8%</div>
+        <button class="ccard-select" data-id="woori-every-discount" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -190,16 +215,19 @@
     <div class="headline">실적 조건 없이 국내외 0.8% + 간편결제 2% 추가</div>
     <div class="cats"><span class="cat-tag">무실적</span><span class="cat-tag">해외겸용</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/samsung-idglobal/index.html" aria-label="삼성카드 iD GLOBAL 상세보기"></a>
+</div><div class="ccard-tile" data-cats="overseas" data-href="card/samsung-idglobal/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="samsung-idglobal" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">삼성카드</div>
         <div class="name">iD GLOBAL</div>
       </div>
-      <div class="rate-badge mono">해외 2%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">해외 2%</div>
+        <button class="ccard-select" data-id="samsung-idglobal" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -209,16 +237,19 @@
     <div class="headline">해외수수료 면제 + 해외결제 2% 할인 + 구독 50% 할인</div>
     <div class="cats"><span class="cat-tag">해외겸용</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/hana-travlog/index.html" aria-label="하나카드 트래블로그 신용카드 상세보기"></a>
+</div><div class="ccard-tile" data-cats="overseas" data-href="card/hana-travlog/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="hana-travlog" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">하나카드</div>
         <div class="name">트래블로그 신용카드</div>
       </div>
-      <div class="rate-badge mono">해외 3%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">해외 3%</div>
+        <button class="ccard-select" data-id="hana-travlog" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -228,16 +259,19 @@
     <div class="headline">국내 1% + 해외 3% 하나머니 적립, 실적·한도 없음</div>
     <div class="cats"><span class="cat-tag">해외겸용</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="transit,lifestyle" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/hyundai-zwork-edition2/index.html" aria-label="현대카드 Z work Edition2 상세보기"></a>
+</div><div class="ccard-tile" data-cats="transit,lifestyle" data-href="card/hyundai-zwork-edition2/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="hyundai-zwork-edition2" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">현대카드</div>
         <div class="name">Z work Edition2</div>
       </div>
-      <div class="rate-badge mono">10%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">10%</div>
+        <button class="ccard-select" data-id="hyundai-zwork-edition2" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -247,16 +281,19 @@
     <div class="headline">온라인쇼핑·편의점·카페·대중교통·도서 10% 할인 + K-패스 연동</div>
     <div class="cats"><span class="cat-tag">대중교통</span><span class="cat-tag">생활 밀착형</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="no-min,overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/lotte-loca-likit20/index.html" aria-label="롯데카드 LOCA LIKIT 2.0 상세보기"></a>
+</div><div class="ccard-tile" data-cats="no-min,overseas" data-href="card/lotte-loca-likit20/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="lotte-loca-likit20" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">롯데카드</div>
         <div class="name">LOCA LIKIT 2.0</div>
       </div>
-      <div class="rate-badge mono">2%(해외)</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">2%(해외)</div>
+        <button class="ccard-select" data-id="lotte-loca-likit20" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -266,16 +303,19 @@
     <div class="headline">실적 없이 국내 1.2%, 해외 2% 할인</div>
     <div class="cats"><span class="cat-tag">무실적</span><span class="cat-tag">해외겸용</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="no-min,overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/kb-wesh-all/index.html" aria-label="KB국민카드 WE:SH All (위시 올) 상세보기"></a>
+</div><div class="ccard-tile" data-cats="no-min,overseas" data-href="card/kb-wesh-all/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="kb-wesh-all" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">KB국민카드</div>
         <div class="name">WE:SH All (위시 올)</div>
       </div>
-      <div class="rate-badge mono">해외 2%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">해외 2%</div>
+        <button class="ccard-select" data-id="kb-wesh-all" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -285,16 +325,19 @@
     <div class="headline">국내 1% + 해외 2%, 실적·한도 없이</div>
     <div class="cats"><span class="cat-tag">무실적</span><span class="cat-tag">해외겸용</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle,overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/samsung-taptap-digital/index.html" aria-label="삼성카드 taptap DIGITAL 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle,overseas" data-href="card/samsung-taptap-digital/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="samsung-taptap-digital" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">삼성카드</div>
         <div class="name">taptap DIGITAL</div>
       </div>
-      <div class="rate-badge mono">스트리밍 50%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">스트리밍 50%</div>
+        <button class="ccard-select" data-id="samsung-taptap-digital" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -304,16 +347,19 @@
     <div class="headline">온라인간편결제 5% + 스트리밍 50% + 해외 1.5%</div>
     <div class="cats"><span class="cat-tag">생활 밀착형</span><span class="cat-tag">해외겸용</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle,fuel" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/shinhan-mrlife/index.html" aria-label="신한카드 Mr.Life 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle,fuel" data-href="card/shinhan-mrlife/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="shinhan-mrlife" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">신한카드</div>
         <div class="name">Mr.Life</div>
       </div>
-      <div class="rate-badge mono">영역별 10~20%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">영역별 10~20%</div>
+        <button class="ccard-select" data-id="shinhan-mrlife" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -323,16 +369,19 @@
     <div class="headline">공과금·마트·주유·편의점·야간소비까지 생활 전방위 할인</div>
     <div class="cats"><span class="cat-tag">생활 밀착형</span><span class="cat-tag">주유 특화</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/woori-cardui-jeongseok2/index.html" aria-label="우리카드 카드의정석Ⅱ (D4) 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle" data-href="card/woori-cardui-jeongseok2/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="woori-cardui-jeongseok2" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">우리카드</div>
         <div class="name">카드의정석Ⅱ (D4)</div>
       </div>
-      <div class="rate-badge mono">커피 55%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">커피 55%</div>
+        <button class="ccard-select" data-id="woori-cardui-jeongseok2" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -342,16 +391,19 @@
     <div class="headline">커피 55% + 대중교통·편의점·영화 청구할인</div>
     <div class="cats"><span class="cat-tag">생활 밀착형</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/kb-easypick/index.html" aria-label="KB국민카드 Easy Pick (이지픽) 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle" data-href="card/kb-easypick/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="kb-easypick" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">KB국민카드</div>
         <div class="name">Easy Pick (이지픽)</div>
       </div>
-      <div class="rate-badge mono">5%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">5%</div>
+        <button class="ccard-select" data-id="kb-easypick" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -361,16 +413,19 @@
     <div class="headline">생활영역 5% + 선택영역(택1) 5% 포인트 적립</div>
     <div class="cats"><span class="cat-tag">생활 밀착형</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/shinhan-cheoum/index.html" aria-label="신한카드 처음 (ANNIVERSE) 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle,twenties" data-href="card/shinhan-cheoum/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="shinhan-cheoum" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">신한카드</div>
         <div class="name">처음 (ANNIVERSE)</div>
       </div>
-      <div class="rate-badge mono">구독 20%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">구독 20%</div>
+        <button class="ccard-select" data-id="shinhan-cheoum" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -378,18 +433,21 @@
       <div><span class="spec-label">전월 실적</span><span class="spec-val">300,000원~</span></div>
     </div>
     <div class="headline">음식·생활·패션 5% + 통신·구독·멤버십 최대 20% 적립</div>
-    <div class="cats"><span class="cat-tag">생활 밀착형</span></div>
+    <div class="cats"><span class="cat-tag">생활 밀착형</span><span class="cat-tag">20대 추천</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle,overseas" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/hyundai-m/index.html" aria-label="현대카드 M 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle,overseas" data-href="card/hyundai-m/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="hyundai-m" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">현대카드</div>
         <div class="name">M</div>
       </div>
-      <div class="rate-badge mono">1.5%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">1.5%</div>
+        <button class="ccard-select" data-id="hyundai-m" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -399,16 +457,19 @@
     <div class="headline">국내외 1.5% + 온라인몰·외식·해외 5% M포인트 적립</div>
     <div class="cats"><span class="cat-tag">생활 밀착형</span><span class="cat-tag">해외겸용</span></div>
   </div>
-</div><div class="ccard-tile" data-cats="lifestyle" style="position:relative;">
-  <a class="ccard-link-overlay" href="card/bc-baro-clear-plus/index.html" aria-label="BC카드 (바로카드) 바로 클리어 플러스 상세보기"></a>
+</div><div class="ccard-tile" data-cats="lifestyle,twenties" data-href="card/bc-baro-clear-plus/index.html">
   <div class="ccard">
-    <button class="ccard-select" data-id="bc-baro-clear-plus" aria-label="비교 항목에 추가"></button>
     <div class="top-row">
       <div>
         <div class="issuer">BC카드 (바로카드)</div>
         <div class="name">바로 클리어 플러스</div>
       </div>
-      <div class="rate-badge mono">10%</div>
+      <div class="top-actions">
+        <div class="rate-badge mono">10%</div>
+        <button class="ccard-select" data-id="bc-baro-clear-plus" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
     </div>
     <div class="stripe"></div>
     <div class="spec-row">
@@ -416,7 +477,73 @@
       <div><span class="spec-label">전월 실적</span><span class="spec-val">150,000원~</span></div>
     </div>
     <div class="headline">낮은 연회비·낮은 실적으로 점심·배달·쇼핑·구독 할인</div>
-    <div class="cats"><span class="cat-tag">생활 밀착형</span></div>
+    <div class="cats"><span class="cat-tag">생활 밀착형</span><span class="cat-tag">20대 추천</span></div>
+  </div>
+</div><div class="ccard-tile" data-cats="no-min,overseas,twenties" data-href="card/samsung-id-simple/index.html">
+  <div class="ccard">
+    <div class="top-row">
+      <div>
+        <div class="issuer">삼성카드</div>
+        <div class="name">iD SIMPLE</div>
+      </div>
+      <div class="top-actions">
+        <div class="rate-badge mono">1%</div>
+        <button class="ccard-select" data-id="samsung-id-simple" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
+    </div>
+    <div class="stripe"></div>
+    <div class="spec-row">
+      <div><span class="spec-label">연회비</span><span class="spec-val">7,000원~</span></div>
+      <div><span class="spec-label">전월 실적</span><span class="spec-val">무실적</span></div>
+    </div>
+    <div class="headline">무실적 국내외 0.7~1% + 쿠팡·네이버·컬리 멤버십 50%</div>
+    <div class="cats"><span class="cat-tag">무실적</span><span class="cat-tag">해외겸용</span><span class="cat-tag">20대 추천</span></div>
+  </div>
+</div><div class="ccard-tile" data-cats="lifestyle,twenties" data-href="card/nh-correct-flex/index.html">
+  <div class="ccard">
+    <div class="top-row">
+      <div>
+        <div class="issuer">NH농협카드</div>
+        <div class="name">올바른 FLEX</div>
+      </div>
+      <div class="top-actions">
+        <div class="rate-badge mono">스타벅스 50%</div>
+        <button class="ccard-select" data-id="nh-correct-flex" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
+    </div>
+    <div class="stripe"></div>
+    <div class="spec-row">
+      <div><span class="spec-label">연회비</span><span class="spec-val">10,000원~</span></div>
+      <div><span class="spec-label">전월 실적</span><span class="spec-val">300,000원~</span></div>
+    </div>
+    <div class="headline">스타벅스 50% + 스트리밍·배달앱 + 온라인쇼핑·편의점</div>
+    <div class="cats"><span class="cat-tag">생활 밀착형</span><span class="cat-tag">20대 추천</span></div>
+  </div>
+</div><div class="ccard-tile" data-cats="lifestyle,fuel,twenties" data-href="card/kb-goodday/index.html">
+  <div class="ccard">
+    <div class="top-row">
+      <div>
+        <div class="issuer">KB국민카드</div>
+        <div class="name">굿데이카드</div>
+      </div>
+      <div class="top-actions">
+        <div class="rate-badge mono">10%</div>
+        <button class="ccard-select" data-id="kb-goodday" type="button" title="비교함에 담기/빼기">
+          <span class="box"></span><span class="txt">비교</span>
+        </button>
+      </div>
+    </div>
+    <div class="stripe"></div>
+    <div class="spec-row">
+      <div><span class="spec-label">연회비</span><span class="spec-val">5,000원~</span></div>
+      <div><span class="spec-label">전월 실적</span><span class="spec-val">300,000원~</span></div>
+    </div>
+    <div class="headline">낮은 연회비로 주유·통신·교통·외식까지 10% 할인</div>
+    <div class="cats"><span class="cat-tag">생활 밀착형</span><span class="cat-tag">주유 특화</span><span class="cat-tag">20대 추천</span></div>
   </div>
 </div>
   </div>
@@ -435,7 +562,7 @@
 <div class="compare-bar" id="compare-bar">
   <span id="compare-count">0개 선택</span>
   <button class="clear" id="compare-clear" type="button">초기화</button>
-  <button id="compare-go" type="button">비교하기</button>
+  <button id="compare-go" type="button" disabled>비교하기</button>
 </div>
 <footer class="site-footer">
   <div class="wrap">
@@ -447,7 +574,7 @@
         <a href="terms.html">이용약관</a>
         <a href="contact.html">문의</a>
       </nav>
-      <p class="disclaimer">카드결은 신용카드 상품을 광고·중개·판매하지 않으며, 카드사 공식 자료를 바탕으로 정리한 정보를 제공하는 정보성 사이트입니다. 카드별 실제 연회비·혜택·전월 실적 조건은 카드사 정책에 따라 수시로 바뀔 수 있으니, 발급 전 반드시 각 카드사 공식 홈페이지에서 최신 조건을 다시 확인하세요. 본 사이트의 정보는 특정 카드 발급을 권유하거나 금융 상품에 대한 투자·소비 자문을 제공하는 것이 아닙니다.</p>
+      <p class="disclaimer">카드결은 신용카드 상품을 광고·중개·판매하지 않으며, 카드사 공식 자료를 바탕으로 정리한 정보를 제공하는 정보성 사이트입니다. 카드별 실제 연회비·혜택·전월 실적 조건은 카드사 정책에 따라 수시로 바뀔 수 있으니, 발급 전 반드시 각 카드사 공식 홈페이지에서 최신 조건을 다시 확인하세요. 페이지 내 "신청" 버튼은 카드사 공식 페이지로 이동할 뿐이며, 카드결은 신청·심사 과정에 관여하지 않습니다.</p>
     </div>
   </div>
 </footer>
@@ -456,7 +583,7 @@
   <button id="cookie-accept">동의합니다</button>
 </div>
 
-<script src="assets/js/main.js" data-home="index.html" data-compare="compare.html"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>

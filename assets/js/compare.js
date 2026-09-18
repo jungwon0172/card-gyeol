@@ -18,7 +18,7 @@
 
   if(cards.length < 2){
     empty.style.display = 'block';
-    empty.querySelector('p').textContent = '비교하려면 카드를 2개 이상 골라주세요. 홈으로 돌아가 카드 타일 오른쪽 위 체크박스로 선택할 수 있어요.';
+    empty.querySelector('p').textContent = '비교하려면 카드를 2개 이상 골라주세요. 홈으로 돌아가 카드 타일의 "비교" 버튼으로 선택할 수 있어요.';
     return;
   }
 
@@ -28,12 +28,13 @@
   function minSpendText(card){
     return card.min_spend_krw === 0 ? '없음 (무실적)' : card.min_spend_krw.toLocaleString('ko-KR') + '원 이상';
   }
+  var CATEGORY_LABELS = window.CATEGORY_LABELS || {};
+  var detailPrefix = window.CARD_DETAIL_PREFIX || 'card/';
 
   var rows = [
     { label: '카드사 / 이름', render: function(c){ return c.issuer + ' ' + c.name; } },
     { label: '카테고리', render: function(c){
-        var labels = window.CATEGORY_LABELS || {};
-        return (c.categories || []).map(function(id){ return labels[id] || id; }).join(', ');
+        return (c.categories || []).map(function(id){ return CATEGORY_LABELS[id] || id; }).join(', ');
       } },
     { label: '연회비', render: feeText },
     { label: '국제 브랜드', render: function(c){ return c.intl_brand || '확인 필요'; } },
@@ -42,10 +43,10 @@
     { label: '적립·할인율', render: function(c){ return c.headline_rate; }, mono:true },
     { label: '추천 대상', render: function(c){ return c.good_for; } },
     { label: '유의사항', render: function(c){ return c.caution; } },
-    { label: '실적 제외 항목(요약)', render: function(c){ return c.exclude_note || '확인 필요'; } }
+    { label: '실적 제외 항목(요약)', render: function(c){ return c.exclude_note || '확인 필요'; } },
+    { label: '신청', render: function(c){ return c.apply_url ? '<a class="apply-link-cell" href="' + c.apply_url + '" target="_blank" rel="nofollow noopener">카드사 페이지로 이동 →</a>' : '-'; }, html:true }
   ];
 
-  var detailPrefix = window.CARD_DETAIL_PREFIX || 'card/';
   var thead = '<tr><th>구분</th>' + cards.map(function(c){
     return '<th><a href="' + detailPrefix + c.id + '/index.html" style="color:inherit;text-decoration:underline;">' + c.issuer + ' ' + c.name + '</a></th>';
   }).join('') + '</tr>';
@@ -53,6 +54,7 @@
   var tbody = rows.map(function(row){
     return '<tr><td class="label-cell">' + row.label + '</td>' + cards.map(function(c){
       var v = row.render(c);
+      if(row.html) return '<td>' + v + '</td>';
       return '<td>' + (row.mono ? '<span class="mono-val">' + v + '</span>' : v) + '</td>';
     }).join('') + '</tr>';
   }).join('');
